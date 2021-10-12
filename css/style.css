@@ -1,0 +1,589 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lato", "Arial";
+  margin: 0;
+  padding: 0;
+}
+
+ul, a {
+  list-style: none !important;
+  text-decoration: none !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+body {
+  background: #000000;
+  z-index: 0;
+}
+
+.container {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  justify-content: space-between;
+  z-index: 9;
+  padding: 0px 20px;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  margin: 2rem;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(247, 247, 247);
+}
+
+@media only screen and (max-width: 840px) {
+  .container{
+    flex-direction: column;
+  }
+  .navlinks {
+      position: fixed;
+      left: -120%;
+      flex-direction: column;
+      background-color: rgb(0, 0, 0);
+      width: 100%;
+      border-radius: 20px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow:
+          0 10px 27px rgba(0, 0, 0, 0.05);   
+  }
+
+  
+  .navlinks.active {
+      left: 0;
+  }
+
+  .nav-item {
+      margin: 0.2rem 0;
+  }
+
+  .hamburger {
+      display: block;
+      cursor: pointer;
+  }
+  .banner h1{
+    display: none;
+  }
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+}
+
+.container .lorem {
+  font-family: "Kaushan script", sans-serif;
+  font-weight: normal;
+  font-size: 3em;
+  display: flex;
+  cursor: pointer;
+  min-width: 10rem;
+  color: rgb(247, 247, 247);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container.sticky {
+  padding: 0px 20px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 10;
+}
+
+.container.sticky .navlinks li a {
+  font-size: 13px;
+  color: black;
+  background:rgb(247, 247, 247);
+      padding:0.2rem 0.2rem;
+      margin:0 0.2rem;
+      font-size:0.9rem;
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 30px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:30px 255px;
+      text-shadow: 1px 0 #888888;
+      border:solid 1px black;
+}
+
+.container.sticky .navlinks.active {
+  background: none;
+}
+
+.container.sticky a h1 {
+  font-size:2rem;
+  
+  justify-content: center;
+  color: black;
+  background:rgb(247, 247, 247);
+      padding:0.2rem 0.2rem;
+      margin:0 0.2rem;
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 30px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:30px 255px;
+      border:solid 1px black;
+      text-shadow: 2px 0 #888888;
+  
+}
+
+.container.sticky .hamburger{
+  background:rgb(247, 247, 247);
+      padding:0.2rem 0.2rem;
+      margin:0 0.2rem;
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 30px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:30px 255px;
+      border:solid 1px black;   
+}
+
+.container.sticky .hamburger .bar{
+  background: black;
+}
+
+/*
+
+styling the navlinks 
+
+*/
+
+.navlinks {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlinks li {
+  list-style: none;
+}
+
+.navlinks li a {
+  color: rgba(255, 255, 255, 0.849);
+  text-decoration: none;
+  position: relative;
+  font-variant: small-caps;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+  display: block;
+  padding: 10px 15px;
+  justify-content: space-between;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+/*
+
+on-hover underlining navlinks effect
+
+*/
+
+.navlinks li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #262626;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+
+.navlinks li a:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navlinks li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: #ffffff8c;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+
+.navlinks li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 5)
+    ),
+    url("../images/landingWallSlot0.jpg");
+  
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner .content-top {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 2em;
+  height: 650px;
+  color: #dddcdc;
+  z-index: 2;
+}
+
+.banner .content-top h1 {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffffff),
+    to(#c0c0c0)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-filter: drop-shadow(2px 2px #333);
+  filter: drop-shadow(2px 2px #333);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  width: auto;
+}
+
+.paral {
+  display:flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  background: rgb(238, 238, 238);
+  position: relative;
+  z-index: 8;
+  
+}
+
+.paral h3 {
+  display: flex;
+  text-transform: uppercase;
+  justify-content: center;
+  letter-spacing: 4px;
+  font: 30px "lato", sans-serif;
+  opacity: 0.7;
+}
+
+.paral p {
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.banner2 {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 5)),
+    url("../images/slot4.0.jpg");
+  width: 100%;
+  height: 45vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 7;
+  
+}
+
+
+.input-field {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+}
+.input-field input,
+.input-field textarea {
+  width: 100%;
+  padding: 6px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px dotted #666;
+  font-size: 16px;
+  color: #666;
+  font-weight: 700;
+  resize: none;
+}
+
+.input-field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 0;
+  pointer-events: none;
+  font-size: 16px;
+  color: #666;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.6s;
+}
+
+.input-field input:focus + label,
+.input-field textarea:focus + label,
+.input-field input:valid + label,
+.input-field textarea:valid + label {
+  top: -30px;
+  font-size: 14px;
+  padding: 1px 5px;
+  background: #3f3f3f;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn {
+  margin-top: 20px;
+  background: #3f3f3f;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.5s;
+  float: right;
+}
+.btn:hover {
+  background: #f30d0dcc;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.sec3 {
+  position: relative;
+  width: 100%;
+  background: rgb(238, 238, 238);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 9;
+  
+}
+.banrdiv {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 3rem;
+  transition: all 1s;
+  justify-items: stretch;
+  /*position: relative;
+  z-index: 8;*/
+}
+
+.kontakt-form {
+  background: #f7f6f6e1;
+  box-shadow: 0 20px 30px rgba(43, 34, 34, 0.863);
+  padding: 27px;
+  line-height: 2;
+  border-radius: 3rem 3rem;
+  margin: 10px 10px;
+}
+
+.kontakt-form p {
+  font-family: "lato", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+}
+
+.bannr-map {
+  margin: 10px 10px;
+}
+
+.bannr-map iframe {
+  box-shadow: 0 20px 30px rgba(43, 34, 34, 0.863);
+  border-radius: 3rem 3rem;
+}
+
+/* 
+-
+-
+Footer styles
+-
+-
+*/
+
+.fixed-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2rem; 
+  color: #2f2f2f;
+  position: relative;
+  background-color: #fff;
+  border-top: 1px solid #d6d6d6;
+  font-family: "Lato";
+  z-index: 4;
+}
+
+.socials{
+  display: flex;
+  justify-content: flex-start;
+  margin: 1em 0;
+}
+
+.socials ul{
+  display: flex;
+}
+
+.fab{
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  color: black;
+}
+
+.fab:hover{
+  color: #f30d0dcc;
+}
+
+.footer__addr {
+  flex: 1 1 auto; 
+  margin: 5px;
+}
+
+.nav__item{
+  margin: 1em;
+  
+}
+
+.footer__logo {
+  font-family: "Lato";
+  font-weight: 700;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin: 1em 0;
+  font-size: 1em;
+  font-weight: 400;
+  
+}
+
+.nav__title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 0.5em;
+}
+
+.footer address {
+  font-style: normal;
+  color: rgb(0, 0, 0);
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  margin: 1em;
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex: 5 0px; 
+}
+
+.nav__ul a {
+  color: #999;
+}
+
+.legal {
+  color: #999;
+  flex: 1 1 auto;
+  margin: 5px;
+}
+
+.legal p{
+  margin: 1em 0;
+}
+
+.legal__links {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.legal__links h3{
+  font-size: 1.7em;
+  margin-top: 1.1em;
+  color: #e40145;
+}
+
+.legal__links p{
+  margin: 1em 0;
+  font-size: 1.1em;
+}
+.cright {
+  align-self: flex-end;
+  margin-top: 1em;
+}
+
+.cright p{
+  font-size: .9em;
+}
